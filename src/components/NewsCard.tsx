@@ -1,4 +1,4 @@
-type Artilcle = {
+export type Article = {
   author:string
   title: string;
   description:string
@@ -7,11 +7,11 @@ type Artilcle = {
   publishedAt: string
   content:string
 }
-type ArtilcleCardProps={
+type ArticleCardProps={
     title:string
     urlToImage:string
 }
-export default function NewsCard(articleProps:ArtilcleCardProps) {
+export default function NewsCard(articleProps:ArticleCardProps) {
     const title:string= articleProps.title;
     const urlToImage:string= articleProps.urlToImage;
 

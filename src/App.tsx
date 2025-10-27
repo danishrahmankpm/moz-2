@@ -1,140 +1,23 @@
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./HomePage";
+import ArticlePage from "./components/ArticlePage";
 
-
-import './App.css'
-
-
-import IconCard from './components/IconCard';
-import NewsCard from './components/NewsCard';
-import SearchBox from './components/SearchBox'
-
-const icons = [
-    { title: "Gmail", imageUrl: "https://cdn.simpleicons.org/gmail" },
-    { title: "Github", imageUrl: "https://cdn.simpleicons.org/github" },
-    { title: "ChatGpt", imageUrl: "https://cdn.simpleicons.org/openai" },
-    { title: "Figma", imageUrl: "https://cdn.simpleicons.org/figma" },
-    { title: "YouTube", imageUrl: "https://cdn.simpleicons.org/youtube" },
-    { title: "Google Drive", imageUrl: "https://cdn.simpleicons.org/googledrive" },
-    { title: "Discord", imageUrl: "https://cdn.simpleicons.org/discord" },
-    { title: "Twitter", imageUrl: "https://cdn.simpleicons.org/x" },
-  ];
-
-const news=[
-  {
-  author: "John Doe",
-  title: "Exploring the Wonders of the Universe",
-  description: "A deep dive into the latest discoveries in astronomy and space exploration.",
-  url: "https://www.example.com/articles/universe-discoveries",
-  urlToImage: "https://science.nasa.gov/wp-content/uploads/2023/09/stsci-01ga76rm0c11w977jrhgj5j26x-2.png?w=1024",
-  publishedAt: "2025-10-26T10:00:00Z",
-  content: "Astronomers have recently unveiled new insights into the formation of galaxies, shedding light on the mysteries of the universe..."
-  },
-    {
-    author: "John Doe",
-    title: "Exploring the Wonders of the Universe",
-    description: "A deep dive into the latest discoveries in astronomy and space exploration.",
-    url: "https://www.example.com/articles/universe-discoveries",
-    urlToImage: "https://science.nasa.gov/wp-content/uploads/2023/09/stsci-01ga76rm0c11w977jrhgj5j26x-2.png?w=1024",
-    publishedAt: "2025-10-26T10:00:00Z",
-    content: "Astronomers have recently unveiled new insights into the formation of galaxies, shedding light on the mysteries of the universe..."
-  },
-  {
-    author: "John Doe",
-    title: "Exploring the Wonders of the Universe",
-    description: "A deep dive into the latest discoveries in astronomy and space exploration.",
-    url: "https://www.example.com/articles/universe-discoveries",
-    urlToImage: "https://science.nasa.gov/wp-content/uploads/2023/09/stsci-01ga76rm0c11w977jrhgj5j26x-2.png?w=1024",
-    publishedAt: "2025-10-26T10:00:00Z",
-    content: "Astronomers have recently unveiled new insights into the formation of galaxies, shedding light on the mysteries of the universe..."
-  },
-  {
-    author: "John Doe",
-    title: "Exploring the Wonders of the Universe",
-    description: "A deep dive into the latest discoveries in astronomy and space exploration.",
-    url: "https://www.example.com/articles/universe-discoveries",
-    urlToImage: "https://science.nasa.gov/wp-content/uploads/2023/09/stsci-01ga76rm0c11w977jrhgj5j26x-2.png?w=1024",
-    publishedAt: "2025-10-26T10:00:00Z",
-    content: "Astronomers have recently unveiled new insights into the formation of galaxies, shedding light on the mysteries of the universe..."
-  },
-  {
-    author: "John Doe",
-    title: "Exploring the Wonders of the Universe",
-    description: "A deep dive into the latest discoveries in astronomy and space exploration.",
-    url: "https://www.example.com/articles/universe-discoveries",
-    urlToImage: "https://science.nasa.gov/wp-content/uploads/2023/09/stsci-01ga76rm0c11w977jrhgj5j26x-2.png?w=1024",
-    publishedAt: "2025-10-26T10:00:00Z",
-    content: "Astronomers have recently unveiled new insights into the formation of galaxies, shedding light on the mysteries of the universe..."
-  },
-  {
-    author: "John Doe",
-    title: "Exploring the Wonders of the Universe",
-    description: "A deep dive into the latest discoveries in astronomy and space exploration.",
-    url: "https://www.example.com/articles/universe-discoveries",
-    urlToImage: "https://science.nasa.gov/wp-content/uploads/2023/09/stsci-01ga76rm0c11w977jrhgj5j26x-2.png?w=1024",
-    publishedAt: "2025-10-26T10:00:00Z",
-    content: "Astronomers have recently unveiled new insights into the formation of galaxies, shedding light on the mysteries of the universe..."
-  },
-  {
-    author: "John Doe",
-    title: "Exploring the Wonders of the Universe",
-    description: "A deep dive into the latest discoveries in astronomy and space exploration.",
-    url: "https://www.example.com/articles/universe-discoveries",
-    urlToImage: "https://science.nasa.gov/wp-content/uploads/2023/09/stsci-01ga76rm0c11w977jrhgj5j26x-2.png?w=1024",
-    publishedAt: "2025-10-26T10:00:00Z",
-    content: "Astronomers have recently unveiled new insights into the formation of galaxies, shedding light on the mysteries of the universe..."
-  },
-  {
-    author: "John Doe",
-    title: "Exploring the Wonders of the Universe",
-    description: "A deep dive into the latest discoveries in astronomy and space exploration.",
-    url: "https://www.example.com/articles/universe-discoveries",
-    urlToImage: "https://science.nasa.gov/wp-content/uploads/2023/09/stsci-01ga76rm0c11w977jrhgj5j26x-2.png?w=1024",
-    publishedAt: "2025-10-26T10:00:00Z",
-    content: "Astronomers have recently unveiled new insights into the formation of galaxies, shedding light on the mysteries of the universe..."
-  },
-  {
-    author: "John Doe",
-    title: "Exploring the Wonders of the Universe",
-    description: "A deep dive into the latest discoveries in astronomy and space exploration.",
-    url: "https://www.example.com/articles/universe-discoveries",
-    urlToImage: "https://science.nasa.gov/wp-content/uploads/2023/09/stsci-01ga76rm0c11w977jrhgj5j26x-2.png?w=1024",
-    publishedAt: "2025-10-26T10:00:00Z",
-    content: "Astronomers have recently unveiled new insights into the formation of galaxies, shedding light on the mysteries of the universe..."
-  }
-
-]
-
-
-function App() {
-
-
+export default function App() {
   return (
-    <div className="flex flex-col justify-start items-center bg-[#2B2A33] h-screen w-screen overflow-auto ">
-        <div className="pl-7 w-full flex flex-row justify-start items-center gap-2.5 mt-5 mr-1">
-              <img
-                className="w-8 h-8 object-contain"
-                src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Firefox_logo%2C_2019.svg"
-                alt="Firefox Logo"
-              />
-              <h1 className="text-white font-bold text-2xl">FireFox</h1>
-        </div>
-      
-      <SearchBox engine="Google" logourl="logo.png" />
-
-      <div className='flex flex-row justify-center gap-12  mb-12 mt-12 flex-nowrap w-[70%]'>
-        {icons.map((icons,index)=>(
-          <IconCard key={index} title={icons.title} iconlogo={icons.imageUrl}/>
-        ))}
-
-
-      </div>
-      <div className='flex flex-row justify-center gap-8  flex-wrap pb-5 w-[80%] '>
-        {news.map((newsItem,index)=>(
-          <NewsCard key={index} title={newsItem.title} urlToImage={newsItem.urlToImage}/>))}
-      </div>
-
-    </div>
-
-  )
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route
+        path="/article/1"
+        element={
+          <ArticlePage
+            title="Inside the final stretch of New York’s wild mayoral race - Politico"
+            author="POLITICO Staff"
+            publishedAt="2025-10-26T11:00:00Z"
+            urlToImg="https://www.politico.com/dims4/default/resize/1200/quality/90/format/jpg?url=https%3A%2F%2Fstatic.politico.com%2F83%2F44%2Fffe9111c4c1bab7d21c2d8dd5d2d%2Fmain-nycmayoralroundtable2.jpg"
+            content="Gartland: Lets talk about Curtis. He went all Braveheart before the debate yesterday. Reisman: He was clearly advised to rise above it all, compare Cuomo and Mamdani to two kids in a school yard. … [+7362 chars]"
+          />
+        }
+      />
+    </Routes>
+  );
 }
-
-export default App
