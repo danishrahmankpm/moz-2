@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 export type Article = {
+ 
   author:string
   title: string;
   description:string
@@ -10,15 +12,27 @@ export type Article = {
 type ArticleCardProps={
     title:string
     urlToImage:string
+    index:number
 }
 export default function NewsCard(articleProps:ArticleCardProps) {
     const title:string= articleProps.title;
     const urlToImage:string= articleProps.urlToImage;
+    const index=articleProps.index;
 
     return (
-  <button className="w-1/4 h-60 flex flex-col justify-start items-center bg-[#42414d] rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-    <img className="w-full h-2/3 object-cover" src={urlToImage} alt="" />
-    <h2 className="text-white overflow-hidden p-2">{title}</h2>
+  <button className="w-[60%] sm:w-[50%] md:w-[22.5%] min-w-[150px] bg-gray-600 rounded-lg overflow-hidden text-left pb-2.5 flex flex-col cursor-pointer  hover:bg-[#3a3845]">
+    <Link key={index} to={`/article/${index}`}>
+        <div className="w-full h-48 overflow-hidden"> 
+            <img
+            src={urlToImage}
+            alt={title}
+            className="w-full h-full object-cover"
+            />
+        </div>
+        <div className="w-full h-25 overflow-auto">
+            <p className="p-2.5 text-sm text-[#ddd]">{title}</p>
+        </div>
+    </Link>
   </button>
 );
 
