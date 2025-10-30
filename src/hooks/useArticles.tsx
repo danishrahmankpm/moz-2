@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import type { Article }  from './components/NewsCard'
+import type { Article } from '../components/NewsCard';
 import axios from 'axios';
 
 export default function useArticles():Article[]{
@@ -16,8 +16,10 @@ export default function useArticles():Article[]{
                     console.log(response);
                 }
                 
-
-                setArticles(response.data.articles);
+                const indexedArticles=response.data.articles;
+                indexedArticles.forEach((article: Article, index: number) => {article.id = index});
+                localStorage.setItem("articles", JSON.stringify(indexedArticles));
+                setArticles(indexedArticles);
             }
             catch(error){
                 console.log(error);
@@ -25,10 +27,7 @@ export default function useArticles():Article[]{
         }
         fetchArticles();
     },[]);
-    useEffect(() => {
-                    localStorage.setItem("articles", JSON.stringify(articles));
-                    
-                }, [articles]);
+   
     return articles;
     
 }

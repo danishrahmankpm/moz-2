@@ -1,10 +1,11 @@
-import './App.css'
+import '../App.css'
 
 import { useState } from 'react';
-import IconCard from './components/IconCard';
-import NewsCard from './components/NewsCard';
-import SearchBox from './components/SearchBox'
-import useArticles from './useArticles';
+import IconCard from './IconCard';
+import NewsCard from './NewsCard';
+import SearchBox from './SearchBox'
+import useArticles from '../hooks/useArticles';
+import HomepageSheet from './HomePageSheet';
 
 const icons = [
     { title: "Gmail", imageUrl: "https://cdn.simpleicons.org/gmail" },
@@ -21,8 +22,9 @@ const icons = [
 
 
 
-function HomePage() {
+export default function HomePage() {
   const[search,setSearch]=useState("");
+  const[background,setBackground]=useState("");
   const news=useArticles();
 
   const filteredNews=news.filter((item) =>(item.title.toLowerCase().includes(search.toLowerCase())));
@@ -48,8 +50,11 @@ function HomePage() {
 
       </div>
       <div className='flex flex-row justify-center gap-8  flex-wrap pb-5 w-[80%] '>
-        {filteredNews.map((newsItem,index)=>(
-          <NewsCard key={index} index={index} title={newsItem.title} urlToImage={newsItem.urlToImage}/>))}
+        {filteredNews.map((newsItem)=>(
+          <NewsCard key={newsItem.id} id={newsItem.id} title={newsItem.title} urlToImage={newsItem.urlToImage}/>))}
+      </div>
+      <div >
+          <HomepageSheet setBackground={setBackground} />
       </div>
       
 
@@ -58,4 +63,4 @@ function HomePage() {
   )
 }
 
-export default HomePage
+ 
