@@ -6,6 +6,7 @@ import NewsCard from './NewsCard';
 import SearchBox from './SearchBox'
 import useArticles from '../hooks/useArticles';
 import HomepageSheet from './HomePageSheet';
+import googleLogo from '../assets/google.png'
 
 const icons = [
     { title: "Gmail", imageUrl: "https://cdn.simpleicons.org/gmail" },
@@ -30,7 +31,7 @@ export default function HomePage() {
   const filteredNews=news.filter((item) =>(item.title.toLowerCase().includes(search.toLowerCase())));
 
   return (
-    <div className="flex flex-col justify-start items-center bg-[#2B2A33] h-screen w-screen overflow-y-auto ">
+    <div className="flex flex-col justify-start items-center bg-[#2B2A33] h-screen w-screen overflow-y-auto "style={{ backgroundImage: `url(${background})` }}>
         <div className="pl-7 w-full flex flex-row justify-start items-center gap-2.5 mt-5 mr-1">
               <img
                 className="w-8 h-8 object-contain"
@@ -40,7 +41,7 @@ export default function HomePage() {
               <h1 className="text-white font-bold text-2xl">FireFox</h1>
         </div>
       
-      <SearchBox engine="Google" logourl="logo.png" setSearch={setSearch} />
+      <SearchBox engine="Google" logourl={googleLogo} setSearch={setSearch} />
 
       <div className='flex flex-row justify-center gap-12  mb-24 mt-12 flex-wrap w-[70%]'>
         {icons.map((icons,index)=>(

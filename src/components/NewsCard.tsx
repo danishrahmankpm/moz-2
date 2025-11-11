@@ -20,7 +20,7 @@ export default function NewsCard(articleProps:ArticleCardProps) {
     const id=articleProps.id;
 
     return (
-          <button className="w-[60%] sm:w-[50%] md:w-[22.5%] min-w-[150px] bg-gray-600 rounded-lg overflow-hidden text-left pb-2.5 flex flex-col cursor-pointer  hover:bg-[#3a3845]">
+          <button className="w-[60%] sm:w-[50%] md:w-[22.5%] min-w-[150px] bg-[#3a3845] rounded-lg overflow-hidden text-left pb-2.5 flex flex-col cursor-pointer  hover:bg-gray-700">
             <Link key={id} to={`/article/${id}`}>
                 <div className="w-full h-48 overflow-hidden"> 
                     <img
