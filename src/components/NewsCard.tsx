@@ -14,14 +14,13 @@ type ArticleCardProps={
     urlToImage:string
     id:number
 }
-export default function NewsCard(articleProps:ArticleCardProps) {
-    const title:string= articleProps.title;
-    const urlToImage:string= articleProps.urlToImage;
-    const id=articleProps.id;
-
+export default function NewsCard({title,urlToImage,id}:ArticleCardProps) {
+    
     return (
           <button className="w-[60%] sm:w-[50%] md:w-[22.5%] min-w-[150px] bg-[#3a3845] rounded-lg overflow-hidden text-left pb-2.5 flex flex-col cursor-pointer  hover:bg-gray-700">
-            <Link key={id} to={`/article/${id}`}>
+            <Link key={id} to={`/article/${id}`}
+            aria-label={`Read article: ${title}`}>
+            
                 <div className="w-full h-48 overflow-hidden"> 
                     <img
                     src={urlToImage}

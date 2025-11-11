@@ -31,7 +31,7 @@ export default function HomePage() {
   const filteredNews=news.filter((item) =>(item.title.toLowerCase().includes(search.toLowerCase())));
 
   return (
-    <div className="flex flex-col justify-start items-center bg-[#2B2A33] h-screen w-screen overflow-y-auto "style={{ backgroundImage: `url(${background})` }}>
+    <div  aria-label='firefox logo'className="flex flex-col justify-start items-center bg-[#2B2A33] h-screen w-screen overflow-y-auto "style={{ backgroundImage: `url(${background})` }} >
         <div className="pl-7 w-full flex flex-row justify-start items-center gap-2.5 mt-5 mr-1">
               <img
                 className="w-8 h-8 object-contain"
@@ -41,16 +41,16 @@ export default function HomePage() {
               <h1 className="text-white font-bold text-2xl">FireFox</h1>
         </div>
       
-      <SearchBox engine="Google" logourl={googleLogo} setSearch={setSearch} />
+      <SearchBox aria-label='search-box' engine="Google" logourl={googleLogo} setSearch={setSearch} />
 
-      <div className='flex flex-row justify-center gap-12  mb-24 mt-12 flex-wrap w-[70%]'>
+      <div aria-label='recently-used' className='flex flex-row justify-center gap-12  mb-24 mt-12 flex-wrap w-[70%]'>
         {icons.map((icons,index)=>(
           <IconCard key={index} title={icons.title} iconlogo={icons.imageUrl}/>
         ))}
 
 
       </div>
-      <div className='flex flex-row justify-center gap-8  flex-wrap pb-5 w-[80%] '>
+      <div aria-label='news-section' className='flex flex-row justify-center gap-8  flex-wrap pb-5 w-[80%] '>
         {filteredNews.map((newsItem)=>(
           <NewsCard key={newsItem.id} id={newsItem.id} title={newsItem.title} urlToImage={newsItem.urlToImage}/>))}
       </div>

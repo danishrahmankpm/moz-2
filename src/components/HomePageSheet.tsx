@@ -9,7 +9,6 @@ import {
 import { Edit } from "lucide-react"
 import w1 from "@/assets/w1.jpg";
 import w2 from "@/assets/w2.jpg";
-import w3 from "@/assets/w3.jpg";
 import w4 from "@/assets/w4.jpg";
 import w5 from "@/assets/w5.jpg";
 import w6 from "@/assets/w6.jpg";
@@ -26,21 +25,19 @@ export default function HomepageSheet({ setBackground }: Props) {
         <SheetTrigger asChild>
           
           <button
+            aria-label="Open wallpaper selector"
             className="
               fixed bottom-4 right-4 sm:bottom-6 sm:right-6
               w-12 h-12
               flex items-center justify-center
               bg-gray-800 text-white
               rounded-md shadow-lg
-              hover:bg-gray-600
-              transition
-            "
-          >
+              hover:bg-gray-600">
             <Edit className="w-5 h-5" />
           </button>
         </SheetTrigger>
        
-            <SheetContent side="right" className="bg-gray-700 h-screen overflow-y-auto">
+            <SheetContent side="right" className="bg-gray-700 h-screen overflow-y-auto" aria-label="Wallpaper selection panel">
             
                 <SheetHeader>
                     <SheetTitle className="text-white">Wallpapers</SheetTitle>
@@ -48,7 +45,7 @@ export default function HomepageSheet({ setBackground }: Props) {
                     Select the background you want to apply.
                     </SheetDescription>
                 </SheetHeader>
-                <div className="flex justify-center flex-wrap mb-1 gap-2">
+                    <div className="flex justify-center flex-wrap mb-1 gap-2">
                       {[w1, w2, w4, w5, w6].map((imgSrc, index) => (
                         <button
                           key={index}
